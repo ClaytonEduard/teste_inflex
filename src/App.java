@@ -46,7 +46,7 @@ public class App {
         // 3.3.1 informação de data deve ser exibido no formato dd/mm/aaaa;
         // 3.3.2 informação de valor numérico deve ser exibida no formatado com
         // separador de milhar como ponto e decimal como vírgula.
-
+        System.out.println("-------------------------------------------------------------");
         System.out.printf("%-15s%-20s%-15s%-15s\n", "|Nome ", "|Data Nascimento ", "|Salário ", "|Função ");
         System.out.println("-------------------------------------------------------------");
         funcionarios.forEach(funcionario -> {
@@ -70,7 +70,7 @@ public class App {
                 .collect(Collectors.groupingBy(Funcionario::getFuncao));
 
         // 3.6 Imprimir funcionários agrupados por função
-        System.out.println("3.6 Imprimir funcionários agrupados por função ------------------------");
+        System.out.println("3.6 Imprimir funcionários agrupados por função: \n");
         System.out.printf("%-15s%s\n", "|Função", "|Nomes dos Funcionários");
         System.out.println("----------------------------------");
         funcionariosPorFuncao.forEach((funcao, lista) -> {
@@ -81,7 +81,7 @@ public class App {
 
         System.out.println(""); // pular linha
 
-        System.out.println("3.8 Imprimir funcionários que fazem aniversário nos meses 10 e 12");
+        System.out.println("3.8 Imprimir funcionários que fazem aniversário nos meses 10 e 12 \n");
         // 3.8 Imprimir funcionários que fazem aniversário nos meses 10 e 12
         int[] mesesAniversario = { 10, 12 };
         funcionarios.stream()
@@ -92,7 +92,7 @@ public class App {
         System.out.println(""); // pular linha
 
         // 3.9 Imprimir funcionário mais velho
-        System.out.println("3.9 Imprimir funcionário mais velho");
+        System.out.println("3.9 Imprimir funcionário mais velho: \n");
         Funcionario maisVelho = Collections.max(funcionarios,
                 Comparator.comparing(f -> f.getDataNascimento().until(LocalDate.now()).toTotalMonths()));
         System.out.println("Funcionário mais velho: " + maisVelho.getNome() +
@@ -101,15 +101,15 @@ public class App {
         System.out.println(""); // pular linha
 
         // 3.10 Imprimir lista de funcionários por ordem alfabética
-        System.out.println("3.10 Imprimir lista de funcionários por ordem alfabética");
+        System.out.println("3.10 Imprimir lista de funcionários por ordem alfabética: \n");
         funcionarios.sort(Comparator.comparing(Funcionario::getNome));
-        System.out.println("Funcionários por ordem alfabética:");
+
         funcionarios.forEach(f -> System.out.println("   " + f.getNome()));
 
         System.out.println(""); // pular linha
 
         // 3.11 Imprimir total dos salários dos funcionários
-        System.out.println("3.11 Imprimir total dos salários dos funcionários");
+        System.out.println("3.11 Imprimir total dos salários dos funcionários: \n");
         BigDecimal totalSalarios = funcionarios.stream()
                 .map(Funcionario::getSalario)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
@@ -119,7 +119,7 @@ public class App {
         System.out.println(""); // pular linha
 
         // 3.12 Imprimir quantos salários mínimos ganha cada funcionário
-        System.out.println("3.12 Imprimir quantos salários mínimos ganha cada funcionário");
+        System.out.println("3.12 Imprimir quantos salários mínimos ganha cada funcionário: \n");
         BigDecimal salarioMinimo = new BigDecimal("1212.00");
         funcionarios.forEach(funcionario -> {
             BigDecimal salarioEmSalariosMinimos = funcionario.getSalario().divide(salarioMinimo, 2,
