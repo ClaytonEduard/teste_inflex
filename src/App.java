@@ -114,7 +114,7 @@ public class App {
                 .map(Funcionario::getSalario)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
         String totalSalariosFormatado = String.format("%,.2f", totalSalarios);
-        System.out.println("Total dos salários: R$" + totalSalariosFormatado);
+        System.out.println("Total dos salários: R$" + totalSalariosFormatado + "\n");
 
         System.out.println(""); // pular linha
 
